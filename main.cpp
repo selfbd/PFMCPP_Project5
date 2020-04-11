@@ -70,303 +70,64 @@ namespace Example
     }
 }
 
-
-
 // ======================================================================
-#include <iostream>
-
-/*
- copied UDT 1:
- */
 
 struct ToasterOven
 {
-    int numRacks = 1;
-    int numHeatingModes = 2;
-    int rackLengthIn = 9;
-    int rackWidthIn = 6;
-    int cookingTimeMax = 10;
-    float temperatureOffsetF = 0.0f;
-
-    struct CookingSpec
-    {
-        int temperatureF;
-        int timeMin;      
-
-        CookingSpec() : temperatureF(400), timeMin(5) {}
-    };
+    float tempOffsetF;
 
     ToasterOven()
     {
         std::cout << "ToasterOven ctor" << std::endl;
-        temperatureOffsetF = 0.02f;
+        tempOffsetF = 0.02f;
     } 
-    ~ToasterOven()
-    {
-        std::cout << "ToasterOven dtor" << std::endl;
-    }
-    void printTemperatureOffsetF()
-    {
-        std::cout << "Toaster oven temperatureOffsetF = " << temperatureOffsetF << std::endl;
-    }
-    void cookItem (CookingSpec cookSpec);
-    void timeItemCooking (CookingSpec cookSpec);
-    void activateItemDoneNotification (CookingSpec cookSpec);
-    void monitorTimeRemainingMin(int cookingTimeMin);
+    ~ToasterOven() {std::cout << "ToasterOven dtor" << std::endl;}
 
-    CookingSpec itemSpec;
+    void returnTempOffset()
+    {
+        std::cout << "ToasterOven returnTempOffsetValue(): " << this->returnTempOffsetValue() << " and ToasterOven tempOffsetF: " << this->tempOffsetF << std::endl;
+    }
+    float returnTempOffsetValue() {return 0.023f;}
 };
-
-void ToasterOven::cookItem(CookingSpec cookSpec)
-{
-    if(cookSpec.temperatureF > 100) {}         // do something
-}
-
-void ToasterOven::timeItemCooking(CookingSpec cookSpec)
-{
-    if(cookSpec.timeMin > 0) {}                // do something
-}
-
-void ToasterOven::activateItemDoneNotification(CookingSpec cookSpec)
-{
-    auto durationMin = 6;
-    if(durationMin > cookSpec.timeMin) {}     // do something
-}
-
-void ToasterOven::monitorTimeRemainingMin(int cookingTimeMin)
-{
-    int timeRemaining = cookingTimeMin;
-
-    while (timeRemaining > 0)
-    {
-        std::cout << "Toaster oven cooking time remaining = " << timeRemaining << std::endl; 
-        timeRemaining -= 1;       
-    }
-    std::cout << "Toaster oven cooking time complete" << std::endl; 
-}
 
 // ======================================================================
 
-/*
- copied UDT 2:
- */
-
  struct MicrowaveOven
  {
-    int powerW = 1000;
-    int numHeatingModes = 3;
-    int platterDiameterIn = 12;
-    float weightPounds = 12.5f;
-    float volumeCubicIn = 4096.0f;
-    int yearManufactured = 1978;
-
-    struct CookingSpec
-    {
-        int powerLevel;
-        int timeMin;  
-
-        CookingSpec() : powerLevel(5), timeMin(5) {}
-    };
+    int yearManufactured;
 
     MicrowaveOven()
     {
         std::cout << "MicrowaveOven ctor" << std::endl;
-        yearManufactured = 1970;
+        yearManufactured = 1990;
     } 
-    ~MicrowaveOven()
-    {
-        std::cout << "MicrowaveOven dtor" << std::endl;
-    }
-    void printYearManufactured()
-    {
-        std::cout << "MicrowaveOven yearManufactured = " << yearManufactured << std::endl;
-    }
-    void cookItem (CookingSpec cookSpec);
-    void timeItemCooking (CookingSpec cookSpec);
-    void activateItemDoneNotification (CookingSpec cookSpec);
-    void monitorTimeRemainingMin(int cookingTimeMin);
-    void rampPowerLevelUp(int powerLevel, int rampStep);
-    void rampPowerLevelDown(int powerLevel, int rampStep);
-    void printPowerLevel(int powerLevel);
+    ~MicrowaveOven() {std::cout << "MicrowaveOven dtor" << std::endl;}
 
-    CookingSpec itemSpec;
+    void returnYearManufactured()
+    {
+        std::cout << "MicrowaveOven returnYearManufacturedValue(): " << this->returnYearManufacturedValue() << " and MicrowaveOven yearManufactured: " << this->yearManufactured  << std::endl;
+    }
+    int returnYearManufacturedValue() {return 1992;}
  };
 
-void MicrowaveOven::cookItem(CookingSpec cookSpec)
-{
-    if(cookSpec.powerLevel > 1) {}             // do something
-}
-
-void MicrowaveOven::timeItemCooking(CookingSpec cookSpec)
-{
-    if(cookSpec.timeMin > 0) {}                // do something
-}
-
-void MicrowaveOven::activateItemDoneNotification(CookingSpec cookSpec)
-{
-    auto durationMin = 6;
-    if(durationMin > cookSpec.timeMin) {}     // do something
-}
-
-void MicrowaveOven::monitorTimeRemainingMin(int cookingTimeMin)
-{
-    int timeRemaining = cookingTimeMin;
-
-    while (timeRemaining > 0)
-    {
-        std::cout << "Microwave oven cooking time remaining = " << timeRemaining << std::endl; 
-        timeRemaining -= 1;       
-    }
-    std::cout << "Microwave oven cooking time complete" << std::endl; 
-}
-
-void MicrowaveOven::printPowerLevel(int powerLevel)
-{
-    std::cout << "Microwave oven power level = " << powerLevel << std::endl; 
-}
-
-void MicrowaveOven::rampPowerLevelUp(int powerLevel, int rampStep)
-{
-    int currentLowerLevel = 0;
-
-    for (int i = 0; i <= powerLevel; ++i)
-    {
-        if (currentLowerLevel > 0) printPowerLevel(currentLowerLevel); 
-        currentLowerLevel += rampStep;
-    }
-}
-
-void MicrowaveOven::rampPowerLevelDown(int powerLevel, int rampStep)
-{
-    int currentLowerLevel = powerLevel;
-
-    for (int i = currentLowerLevel; i >= 0; --i)
-    {
-        if (currentLowerLevel > 0) printPowerLevel(currentLowerLevel); 
-        currentLowerLevel -= rampStep;
-    }
-}
-
 // ======================================================================
-/*
- copied UDT 3:
- */
-
-// (BDS 4/1092020)
-// Modified from completed project 3 submission for this project5-part1 requirements
 
 struct PowerAmplifier
 {
-    int continuousPowerOutputRmsW = 100;
-    float thdPct = 0.002f;
-    int snrDb = 93;
-    float inputSensitivityV = 1.09f;
-    float weightPounds = 51.9f;
-    int yearManufactured = 1960;
-    int onDelay = 1;
-    int offDelay = 1;
+    int continuousPowerOutput;
 
     PowerAmplifier()
     {
         std::cout << "PowerAmplifier ctor" << std::endl;
+        continuousPowerOutput = 100;
     }
-    ~PowerAmplifier()
+    ~PowerAmplifier() {std::cout << "PowerAmplifier dtor" << std::endl;}
+
+    void returnContinuousPowerOutput()
     {
-        std::cout << "PowerAmplifier dtor" << std::endl;
+        std::cout << "PowerAmplifier returnContinuousPowerOutputValue(): " << this->returnContinuousPowerOutputValue() << " and PowerAmplifier continuousPowerOutput: " << this->continuousPowerOutput  << std::endl;
     }
-    int setOutputStandby();
-    int setOutputLevel(float level = 10.2f);
-    int setOutputOff(); 
-    int setOutputOn(); 
-    void powerOnDelay(int delay);
-    void powerOffDelay(int delay);
-};
-
-int PowerAmplifier::setOutputStandby()
-{
-    // do something
-    return 0;
-}
-
-int PowerAmplifier::setOutputLevel(float level)
-{
-    if(level > 0.0f) {}     // do something
-    return 0;
-}
-
-// Future refactor opportunity to re-use a single more generic "power ON/OFF state transition" and delay functions
-
-int PowerAmplifier::setOutputOff()
-{
-    std::cout << "PowerAmplifier output OFF" << std::endl;
-    return 0;
-}
-
-int PowerAmplifier::setOutputOn()
-{
-    std::cout << "PowerAmplifier output ON" << std::endl;
-    return 0;
-}
-
-void PowerAmplifier::powerOnDelay(int delay)
-{
-    onDelay = delay;
-    for (int i = delay; i >= 0; --i)
-    {
-        if (i > 0) std::cout << "Power ON delay time remaining = " << i << std::endl;
-    }
-}
-
-void PowerAmplifier::powerOffDelay(int delay)
-{
-    offDelay = delay;
-    for (int i = delay; i >= 0; --i)
-    {
-        if (i > 0) std::cout << "Power OFF delay time remaining = " << i << std::endl;
-    }
-}
-
-// ======================================================================
-/*
- new UDT 4:
- */
-
-struct Kitchen
-{
-    ToasterOven toasterOven;
-    MicrowaveOven microwaveOven;
-    PowerAmplifier powerAmplifier;
-
-    Kitchen()
-    {
-        std::cout << "Kitchen ctor" << std::endl;
-    }
-    ~Kitchen()
-    {
-        std::cout << "Kitchen dtor" << std::endl;
-    }
-};
-
-// ======================================================================
-
-/*
- new UDT 5:
- */
-
-struct AudioRig
-{
-    PowerAmplifier powerAmplifier;
-
-    AudioRig()
-    {
-        std::cout << "AudioRig ctor" << std::endl;
-    }
-    ~AudioRig()
-    {
-        powerAmplifier.powerOffDelay(5);
-        powerAmplifier.setOutputOff();
-        std::cout << "AudioRig dtor" << std::endl;
-    }
+    int returnContinuousPowerOutputValue() {return 99;}
 };
 
 // ======================================================================
@@ -374,29 +135,19 @@ struct AudioRig
 int main()
 {
     std::cout << std::endl;
-
     ToasterOven toasterOven;
-    toasterOven.printTemperatureOffsetF();
-    toasterOven.itemSpec.timeMin = 10;
-    toasterOven.monitorTimeRemainingMin(toasterOven.itemSpec.timeMin);
+    std::cout << "toasterOven returnTempOffsetValue(): " << toasterOven.returnTempOffsetValue() << " and toasterOven tempOffsetF: " << toasterOven.tempOffsetF << std::endl;
+    toasterOven.returnTempOffset();
 
     std::cout << std::endl;
     MicrowaveOven microwaveOven;
-    microwaveOven.printYearManufactured();
-    microwaveOven.itemSpec.powerLevel = 10;
-    microwaveOven.itemSpec.timeMin = 5;
-    microwaveOven.rampPowerLevelUp(microwaveOven.itemSpec.powerLevel, 1);
-    microwaveOven.monitorTimeRemainingMin(toasterOven.itemSpec.timeMin);
-    microwaveOven.rampPowerLevelDown(microwaveOven.itemSpec.powerLevel, 1);
+    std::cout << "microwaveOven returnYearManufacturedValue(): " << microwaveOven.returnYearManufacturedValue() << " and microwaveOven yearManufactured: " << microwaveOven.yearManufactured << std::endl;
+    microwaveOven.returnYearManufactured();
 
     std::cout << std::endl;
     PowerAmplifier powerAmp;
-    powerAmp.powerOnDelay(2);
-    powerAmp.setOutputOn();
-
-    std::cout << std::endl;
-    Kitchen kitchen;
-    AudioRig audioRig;
+    std::cout << "powerAmp returnContinuousPowerOutputValue(): " << powerAmp.returnContinuousPowerOutputValue() << " and powerAmp continuousPowerOutput: " << powerAmp.continuousPowerOutput << std::endl;
+    powerAmp.returnContinuousPowerOutput();
 
     std::cout << std::endl;
 }
