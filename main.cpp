@@ -51,7 +51,7 @@ struct ToasterOven
     }
     float returnTempOffsetValue() {return 0.023f;}
 
-    JUCE_LEAK_DETECTOR(ToasterOven);
+    JUCE_LEAK_DETECTOR(ToasterOven)
 };
 
 struct ToasterOvenWrapper
@@ -80,7 +80,7 @@ struct ToasterOvenWrapper
     }
     int returnYearManufacturedValue() {return 1992;}
 
-    JUCE_LEAK_DETECTOR(MicrowaveOven);
+    JUCE_LEAK_DETECTOR(MicrowaveOven)
  };
 
 struct MicrowaveOvenWrapper
@@ -109,7 +109,7 @@ struct PowerAmplifier
     }
     int returnContinuousPowerOutputValue() {return 99;}
 
-    JUCE_LEAK_DETECTOR(PowerAmplifier);
+    JUCE_LEAK_DETECTOR(PowerAmplifier)
 };
 
 struct PowerAmplifierWrapper
