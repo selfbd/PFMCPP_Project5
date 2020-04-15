@@ -29,17 +29,10 @@ send me a DM to check your pull request
  see here for an example: https://repl.it/@matkatmusic/ch3p04example
  */
 
-
-
-
-
-
-
-
-
-
-
 // ======================================================================
+
+#include <iostream>
+#include "LeakedObjectDetector.h"
 
 struct ToasterOven
 {
@@ -57,6 +50,15 @@ struct ToasterOven
         std::cout << "ToasterOven returnTempOffsetValue(): " << this->returnTempOffsetValue() << " and ToasterOven tempOffsetF: " << this->tempOffsetF << std::endl;
     }
     float returnTempOffsetValue() {return 0.023f;}
+
+    JUCE_LEAK_DETECTOR(ToasterOven)
+};
+
+struct ToasterOvenWrapper
+{
+    ToasterOvenWrapper(ToasterOven* toasterOven) : toasterOven1(toasterOven) { }
+    ~ToasterOvenWrapper() { delete toasterOven1; }
+    ToasterOven* toasterOven1 = nullptr;
 };
 
 // ======================================================================
@@ -77,7 +79,16 @@ struct ToasterOven
         std::cout << "MicrowaveOven returnYearManufacturedValue(): " << this->returnYearManufacturedValue() << " and MicrowaveOven yearManufactured: " << this->yearManufactured  << std::endl;
     }
     int returnYearManufacturedValue() {return 1992;}
+
+    JUCE_LEAK_DETECTOR(MicrowaveOven)
  };
+
+struct MicrowaveOvenWrapper
+{
+    MicrowaveOvenWrapper(MicrowaveOven* microwaveOven) : microwaveOven1(microwaveOven) { }
+    ~MicrowaveOvenWrapper() { delete microwaveOven1; }
+    MicrowaveOven* microwaveOven1 = nullptr;
+};
 
 // ======================================================================
 
@@ -97,6 +108,15 @@ struct PowerAmplifier
         std::cout << "PowerAmplifier returnContinuousPowerOutputValue(): " << this->returnContinuousPowerOutputValue() << " and PowerAmplifier continuousPowerOutput: " << this->continuousPowerOutput  << std::endl;
     }
     int returnContinuousPowerOutputValue() {return 99;}
+
+    JUCE_LEAK_DETECTOR(PowerAmplifier)
+};
+
+struct PowerAmplifierWrapper
+{
+    PowerAmplifierWrapper(PowerAmplifier* powerAmplifier) : powerAmplifier1(powerAmplifier) { }
+    ~PowerAmplifierWrapper() { delete powerAmplifier1; }
+    PowerAmplifier* powerAmplifier1 = nullptr;
 };
 
 // ======================================================================
@@ -104,19 +124,21 @@ struct PowerAmplifier
 int main()
 {
     std::cout << std::endl;
-    ToasterOven toasterOven;
-    std::cout << "toasterOven returnTempOffsetValue(): " << toasterOven.returnTempOffsetValue() << " and toasterOven tempOffsetF: " << toasterOven.tempOffsetF << std::endl;
-    toasterOven.returnTempOffset();
+    ToasterOvenWrapper toasterOven11Wrapper( new ToasterOven() );
+    std::cout << "toasterOven11Wrapper.toasterOven1->returnTempOffsetValue(): " << toasterOven11Wrapper.toasterOven1->returnTempOffsetValue() << " and toasterOven11Wrapper.toasterOven1->tempOffsetF: " << toasterOven11Wrapper.toasterOven1->tempOffsetF << std::endl;
+    toasterOven11Wrapper.toasterOven1->returnTempOffset();
 
     std::cout << std::endl;
-    MicrowaveOven microwaveOven;
-    std::cout << "microwaveOven returnYearManufacturedValue(): " << microwaveOven.returnYearManufacturedValue() << " and microwaveOven yearManufactured: " << microwaveOven.yearManufactured << std::endl;
-    microwaveOven.returnYearManufactured();
+    MicrowaveOvenWrapper microwaveOven1Wrapper( new MicrowaveOven() );
+    std::cout << "microwaveOven1Wrapper.microwaveOven1->returnYearManufactured(): " << microwaveOven1Wrapper.microwaveOven1->returnYearManufacturedValue() << " and microwaveOven1Wrapper.microwaveOven1->yearManufactured: " << microwaveOven1Wrapper.microwaveOven1->yearManufactured << std::endl;
+    microwaveOven1Wrapper.microwaveOven1->returnYearManufactured();
 
     std::cout << std::endl;
-    PowerAmplifier powerAmp;
-    std::cout << "powerAmp returnContinuousPowerOutputValue(): " << powerAmp.returnContinuousPowerOutputValue() << " and powerAmp continuousPowerOutput: " << powerAmp.continuousPowerOutput << std::endl;
-    powerAmp.returnContinuousPowerOutput();
+    PowerAmplifierWrapper powerAmp1Wrapper( new PowerAmplifier() );
+    std::cout << "powerAmp1Wrapper.powerAmplifier1->returnContinuousPowerOutputValue(): " << powerAmp1Wrapper.powerAmplifier1->returnContinuousPowerOutputValue() << " and powerAmp1Wrapper.powerAmplifier1->continuousPowerOutput: " << powerAmp1Wrapper.powerAmplifier1->continuousPowerOutput << std::endl;
+    powerAmp1Wrapper.powerAmplifier1->returnContinuousPowerOutput();
 
     std::cout << std::endl;
+    return 0;
 }
+
