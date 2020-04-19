@@ -38,98 +38,10 @@ send me a DM to check your pull request
          just split it up into source files and provide the appropriate #include directives.
  */
 
-
 // ======================================================================
 
 #include <iostream>
-#include "LeakedObjectDetector.h"
-
-struct ToasterOven
-{
-    float tempOffsetF;
-
-    ToasterOven()
-    {
-        std::cout << "ToasterOven ctor" << std::endl;
-        tempOffsetF = 0.02f;
-    } 
-    ~ToasterOven() {std::cout << "ToasterOven dtor" << std::endl;}
-
-    void returnTempOffset()
-    {
-        std::cout << "ToasterOven returnTempOffsetValue(): " << this->returnTempOffsetValue() << " and ToasterOven tempOffsetF: " << this->tempOffsetF << std::endl;
-    }
-    float returnTempOffsetValue() {return 0.023f;}
-
-    JUCE_LEAK_DETECTOR(ToasterOven)
-};
-
-struct ToasterOvenWrapper
-{
-    ToasterOvenWrapper(ToasterOven* toasterOven) : toasterOven1(toasterOven) { }
-    ~ToasterOvenWrapper() { delete toasterOven1; }
-    ToasterOven* toasterOven1 = nullptr;
-};
-
-// ======================================================================
-
- struct MicrowaveOven
- {
-    int yearManufactured;
-
-    MicrowaveOven()
-    {
-        std::cout << "MicrowaveOven ctor" << std::endl;
-        yearManufactured = 1990;
-    } 
-    ~MicrowaveOven() {std::cout << "MicrowaveOven dtor" << std::endl;}
-
-    void returnYearManufactured()
-    {
-        std::cout << "MicrowaveOven returnYearManufacturedValue(): " << this->returnYearManufacturedValue() << " and MicrowaveOven yearManufactured: " << this->yearManufactured  << std::endl;
-    }
-    int returnYearManufacturedValue() {return 1992;}
-
-    JUCE_LEAK_DETECTOR(MicrowaveOven)
- };
-
-struct MicrowaveOvenWrapper
-{
-    MicrowaveOvenWrapper(MicrowaveOven* microwaveOven) : microwaveOven1(microwaveOven) { }
-    ~MicrowaveOvenWrapper() { delete microwaveOven1; }
-    MicrowaveOven* microwaveOven1 = nullptr;
-};
-
-// ======================================================================
-
-struct PowerAmplifier
-{
-    int continuousPowerOutput;
-
-    PowerAmplifier()
-    {
-        std::cout << "PowerAmplifier ctor" << std::endl;
-        continuousPowerOutput = 100;
-    }
-    ~PowerAmplifier() {std::cout << "PowerAmplifier dtor" << std::endl;}
-
-    void returnContinuousPowerOutput()
-    {
-        std::cout << "PowerAmplifier returnContinuousPowerOutputValue(): " << this->returnContinuousPowerOutputValue() << " and PowerAmplifier continuousPowerOutput: " << this->continuousPowerOutput  << std::endl;
-    }
-    int returnContinuousPowerOutputValue() {return 99;}
-
-    JUCE_LEAK_DETECTOR(PowerAmplifier)
-};
-
-struct PowerAmplifierWrapper
-{
-    PowerAmplifierWrapper(PowerAmplifier* powerAmplifier) : powerAmplifier1(powerAmplifier) { }
-    ~PowerAmplifierWrapper() { delete powerAmplifier1; }
-    PowerAmplifier* powerAmplifier1 = nullptr;
-};
-
-// ======================================================================
+#include "Wrappers.h"
 
 int main()
 {
