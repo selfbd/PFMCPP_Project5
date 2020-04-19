@@ -1,8 +1,9 @@
 // Wrappers.h
 #pragma once
-#include "ToasterOven.h"
-#include "MicrowaveOven.h"
-#include "PowerAmplifier.h"
+
+struct MicrowaveOven;
+struct PowerAmplifier;
+struct ToasterOven; 
 
 struct MicrowaveOvenWrapper
 {

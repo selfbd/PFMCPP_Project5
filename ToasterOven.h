@@ -14,4 +14,3 @@ struct ToasterOven
 
     JUCE_LEAK_DETECTOR(ToasterOven)    
 };
-

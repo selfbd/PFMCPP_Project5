@@ -14,5 +14,3 @@ struct MicrowaveOven
     
     JUCE_LEAK_DETECTOR(MicrowaveOven)
 };
-
-

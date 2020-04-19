@@ -14,4 +14,3 @@ struct PowerAmplifier
 
     JUCE_LEAK_DETECTOR(PowerAmplifier)    
 };
-

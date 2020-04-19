@@ -41,6 +41,9 @@ send me a DM to check your pull request
 // ======================================================================
 
 #include <iostream>
+#include "MicrowaveOven.h"
+#include "PowerAmplifier.h"
+#include "ToasterOven.h"
 #include "Wrappers.h"
 
 int main()

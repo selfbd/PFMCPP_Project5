@@ -16,4 +16,3 @@ void MicrowaveOven::returnYearManufactured()
 }
 
 int MicrowaveOven::returnYearManufacturedValue() { return 1992; }
-
