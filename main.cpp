@@ -41,6 +41,8 @@ send me a DM to check your pull request
 // ======================================================================
 
 #include <iostream>
+#include "AudioRig.h"
+#include "Kitchen.h"
 #include "MicrowaveOven.h"
 #include "PowerAmplifier.h"
 #include "ToasterOven.h"
@@ -48,6 +50,12 @@ send me a DM to check your pull request
 
 int main()
 {
+    std::cout << std::endl;
+    AudioRigWrapper audioRigWrapper( new AudioRig() );
+
+    std::cout << std::endl;
+    KitchenWrapper kitchenWrapper( new Kitchen() );
+
     std::cout << std::endl;
     ToasterOvenWrapper toasterOven1Wrapper( new ToasterOven() );
     std::cout << "toasterOven1Wrapper.toasterOven1->returnTempOffsetValue(): " << toasterOven1Wrapper.toasterOven1->returnTempOffsetValue() << " and toasterOven1Wrapper.toasterOven1->tempOffsetF: " << toasterOven1Wrapper.toasterOven1->tempOffsetF << std::endl;
