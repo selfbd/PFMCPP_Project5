@@ -8,12 +8,12 @@ MicrowaveOven::MicrowaveOven()
     yearManufactured = 1990;
 }
 
-MicrowaveOven::~MicrowaveOven() {std::cout << "MicrowaveOven dtor" << std::endl;}
+MicrowaveOven::~MicrowaveOven() { std::cout << "MicrowaveOven dtor" << std::endl; }
 
 void MicrowaveOven::returnYearManufactured()
 {
     std::cout << "MicrowaveOven returnYearManufacturedValue(): " << this->returnYearManufacturedValue() << " and MicrowaveOven yearManufactured: " << this->yearManufactured  << std::endl;
 }
 
-int MicrowaveOven::returnYearManufacturedValue() {return 1992;}
+int MicrowaveOven::returnYearManufacturedValue() { return 1992; }
 

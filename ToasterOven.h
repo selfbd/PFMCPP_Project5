@@ -15,9 +15,3 @@ struct ToasterOven
     JUCE_LEAK_DETECTOR(ToasterOven)    
 };
 
-struct ToasterOvenWrapper
-{
-    ToasterOven* toasterOven1;
-    ToasterOvenWrapper(ToasterOven* toasterOven);
-    ~ToasterOvenWrapper();
-};

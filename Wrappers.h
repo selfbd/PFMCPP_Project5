@@ -4,23 +4,23 @@
 #include "MicrowaveOven.h"
 #include "PowerAmplifier.h"
 
-ToasterOvenWrapper::ToasterOvenWrapper(ToasterOven* toasterOven)
+struct MicrowaveOvenWrapper
 {
-    toasterOven1 = nullptr;
-    toasterOven1 = toasterOven;
-}
-ToasterOvenWrapper::~ToasterOvenWrapper() { delete toasterOven1; toasterOven1 = nullptr;}
+    MicrowaveOven* microwaveOven1;
+    MicrowaveOvenWrapper(MicrowaveOven* microwaveOven);
+    ~MicrowaveOvenWrapper();
+};
 
-MicrowaveOvenWrapper::MicrowaveOvenWrapper(MicrowaveOven* microwaveOven)
+struct PowerAmplifierWrapper
 {
-    microwaveOven1 = nullptr;
-    microwaveOven1 = microwaveOven;
-}
-MicrowaveOvenWrapper::~MicrowaveOvenWrapper() { delete microwaveOven1; microwaveOven1 = nullptr;}
+    PowerAmplifier* powerAmplifier1;
+    PowerAmplifierWrapper(PowerAmplifier* powerAmplifier);
+    ~PowerAmplifierWrapper();
+};
 
-PowerAmplifierWrapper::PowerAmplifierWrapper(PowerAmplifier* powerAmplifier)
+struct ToasterOvenWrapper
 {
-    powerAmplifier1 = nullptr;
-    powerAmplifier1 = powerAmplifier;
-}
-PowerAmplifierWrapper::~PowerAmplifierWrapper() { delete powerAmplifier1; powerAmplifier1 = nullptr;}
+    ToasterOven* toasterOven1;
+    ToasterOvenWrapper(ToasterOven* toasterOven);
+    ~ToasterOvenWrapper();
+};

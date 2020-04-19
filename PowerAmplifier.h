@@ -15,9 +15,3 @@ struct PowerAmplifier
     JUCE_LEAK_DETECTOR(PowerAmplifier)    
 };
 
-struct PowerAmplifierWrapper
-{
-    PowerAmplifier* powerAmplifier1;
-    PowerAmplifierWrapper(PowerAmplifier* powerAmplifier);
-    ~PowerAmplifierWrapper();
-};

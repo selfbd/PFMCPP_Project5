@@ -15,9 +15,4 @@ struct MicrowaveOven
     JUCE_LEAK_DETECTOR(MicrowaveOven)
 };
 
-struct MicrowaveOvenWrapper
-{
-    MicrowaveOven* microwaveOven1;
-    MicrowaveOvenWrapper(MicrowaveOven* microwaveOven);
-    ~MicrowaveOvenWrapper();
-};
+

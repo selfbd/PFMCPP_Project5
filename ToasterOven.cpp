@@ -8,11 +8,11 @@ ToasterOven::ToasterOven()
     tempOffsetF = 0.02f;
 }
 
-ToasterOven::~ToasterOven() {std::cout << "ToasterOven dtor" << std::endl;}
+ToasterOven::~ToasterOven() { std::cout << "ToasterOven dtor" << std::endl; }
 
 void ToasterOven::returnTempOffset()
 {
     std::cout << "ToasterOven returnTempOffsetValue(): " << this->returnTempOffsetValue() << " and ToasterOven tempOffsetF: " << this->tempOffsetF << std::endl;
 }
 
-float ToasterOven::returnTempOffsetValue() {return 0.023f;}
+float ToasterOven::returnTempOffsetValue() { return 0.023f; }
