@@ -1,8 +1,15 @@
-// Wrappers.cpp
+#include "AudioRig.h"
+#include "Kitchen.h"
 #include "MicrowaveOven.h"
 #include "PowerAmplifier.h"
 #include "ToasterOven.h"
 #include "Wrappers.h"
+
+AudioRigWrapper::AudioRigWrapper(AudioRig* audioRig) : audioRig1(audioRig) {}
+AudioRigWrapper::~AudioRigWrapper() { delete audioRig1; audioRig1 = nullptr; }
+
+KitchenWrapper::KitchenWrapper(Kitchen* kitchen) : kitchen1(kitchen) {}
+KitchenWrapper::~KitchenWrapper() { delete kitchen1; kitchen1 = nullptr; }
 
 MicrowaveOvenWrapper::MicrowaveOvenWrapper(MicrowaveOven* microwaveOven) : microwaveOven1(microwaveOven) {}
 MicrowaveOvenWrapper::~MicrowaveOvenWrapper() { delete microwaveOven1; microwaveOven1 = nullptr; }

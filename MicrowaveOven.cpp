@@ -1,4 +1,3 @@
-// MicrowaveOven.cpp
 #include <iostream>
 #include "MicrowaveOven.h"
 

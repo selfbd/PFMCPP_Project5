@@ -1,4 +1,3 @@
-// ToasterOven.h
 #pragma once
 #include "LeakedObjectDetector.h"
 

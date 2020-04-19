@@ -1,4 +1,3 @@
-// PowerAmplifier.h
 #pragma once
 #include "LeakedObjectDetector.h"
 

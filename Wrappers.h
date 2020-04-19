@@ -1,9 +1,24 @@
-// Wrappers.h
 #pragma once
 
+struct AudioRig;
+struct Kitchen;
 struct MicrowaveOven;
 struct PowerAmplifier;
 struct ToasterOven; 
+
+struct AudioRigWrapper
+{
+    AudioRig* audioRig1;
+    AudioRigWrapper(AudioRig* audioRig);
+    ~AudioRigWrapper();
+};
+
+struct KitchenWrapper
+{
+    Kitchen* kitchen1;
+    KitchenWrapper(Kitchen* kitchen);
+    ~KitchenWrapper();
+};
 
 struct MicrowaveOvenWrapper
 {

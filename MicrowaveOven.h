@@ -1,4 +1,3 @@
-// MicrowaveOven.h
 #pragma once
 #include "LeakedObjectDetector.h"
 

@@ -1,4 +1,3 @@
-// ToasterOven.cpp
 #include <iostream>
 #include "ToasterOven.h"
 

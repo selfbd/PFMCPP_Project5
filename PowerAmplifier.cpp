@@ -1,4 +1,3 @@
-// PowerAmplifier.cpp
 #include <iostream>
 #include "PowerAmplifier.h"
 

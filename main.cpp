@@ -49,9 +49,9 @@ send me a DM to check your pull request
 int main()
 {
     std::cout << std::endl;
-    ToasterOvenWrapper toasterOven11Wrapper( new ToasterOven() );
-    std::cout << "toasterOven11Wrapper.toasterOven1->returnTempOffsetValue(): " << toasterOven11Wrapper.toasterOven1->returnTempOffsetValue() << " and toasterOven11Wrapper.toasterOven1->tempOffsetF: " << toasterOven11Wrapper.toasterOven1->tempOffsetF << std::endl;
-    toasterOven11Wrapper.toasterOven1->returnTempOffset();
+    ToasterOvenWrapper toasterOven1Wrapper( new ToasterOven() );
+    std::cout << "toasterOven1Wrapper.toasterOven1->returnTempOffsetValue(): " << toasterOven1Wrapper.toasterOven1->returnTempOffsetValue() << " and toasterOven1Wrapper.toasterOven1->tempOffsetF: " << toasterOven1Wrapper.toasterOven1->tempOffsetF << std::endl;
+    toasterOven1Wrapper.toasterOven1->returnTempOffset();
 
     std::cout << std::endl;
     MicrowaveOvenWrapper microwaveOven1Wrapper( new MicrowaveOven() );
