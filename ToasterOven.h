@@ -1,5 +1,6 @@
 // ToasterOven.h
 #pragma once
+#include "LeakedObjectDetector.h"
 
 struct ToasterOven
 {
@@ -10,6 +11,8 @@ struct ToasterOven
 
     void returnTempOffset();
     float returnTempOffsetValue();
+
+    JUCE_LEAK_DETECTOR(ToasterOven)    
 };
 
 struct ToasterOvenWrapper

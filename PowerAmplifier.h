@@ -1,5 +1,6 @@
 // PowerAmplifier.h
 #pragma once
+#include "LeakedObjectDetector.h"
 
 struct PowerAmplifier
 {
@@ -10,6 +11,8 @@ struct PowerAmplifier
 
     void returnContinuousPowerOutput();
     int returnContinuousPowerOutputValue();
+
+    JUCE_LEAK_DETECTOR(PowerAmplifier)    
 };
 
 struct PowerAmplifierWrapper

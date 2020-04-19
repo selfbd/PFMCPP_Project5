@@ -1,5 +1,6 @@
 // MicrowaveOven.h
 #pragma once
+#include "LeakedObjectDetector.h"
 
 struct MicrowaveOven
 {
@@ -10,6 +11,8 @@ struct MicrowaveOven
 
     void returnYearManufactured();
     int returnYearManufacturedValue();
+    
+    JUCE_LEAK_DETECTOR(MicrowaveOven)
 };
 
 struct MicrowaveOvenWrapper
